@@ -1,5 +1,5 @@
 const GL = require("gl-react");
-const React = GL.React;
+const React = require("react");
 const {
   PropTypes
 } = React;
@@ -19,11 +19,9 @@ function directionForPass (p, factor, total) {
 }
 
 module.exports = GL.createComponent(
-  ({ width, height, factor, children, passes, directionForPass }) => {
+  ({ factor, children, passes, directionForPass }) => {
     const rec = pass => pass <= 0 ? children :
     <Blur1D
-      width={width}
-      height={height}
       direction={directionForPass(pass, factor, passes)}>
       {rec(pass-1)}
     </Blur1D>;
@@ -36,8 +34,6 @@ module.exports = GL.createComponent(
       directionForPass
     },
     propTypes: {
-      width: PropTypes.number,
-      height: PropTypes.number,
       factor: PropTypes.number.isRequired,
       children: PropTypes.any.isRequired,
       passes: PropTypes.number,

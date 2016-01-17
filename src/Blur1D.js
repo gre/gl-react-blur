@@ -1,6 +1,5 @@
 const GL = require("gl-react");
-const React = GL.React;
-
+const React = require("react");
 const {
   PropTypes
 } = React;
@@ -50,8 +49,6 @@ module.exports = GL.createComponent(
 {
   displayName: "Blur1D",
   propTypes: {
-    width: PropTypes.number,
-    height: PropTypes.number,
     direction: PropTypes.array.isRequired,
     children: PropTypes.any.isRequired
   }
