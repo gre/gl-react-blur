@@ -32,11 +32,12 @@ void main () {
 });
 
 module.exports = GL.createComponent(
-  ({ width, height, direction, children: t }) =>
+  ({ width, height, pixelRatio, direction, children: t }) =>
   <GL.Node
     shader={shaders.blur1D}
     width={width}
     height={height}
+    pixelRatio={pixelRatio}
     uniforms={{
       direction,
       resolution: [ width, height ],
