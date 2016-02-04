@@ -19,9 +19,12 @@ function directionForPass (p, factor, total) {
 }
 
 module.exports = GL.createComponent(
-  ({ factor, children, passes, directionForPass }) => {
+  ({ width, height, pixelRatio, factor, children, passes, directionForPass }) => {
     const rec = pass => pass <= 0 ? children :
     <Blur1D
+      width={width}
+      height={height}
+      pixelRatio={pixelRatio}
       direction={directionForPass(pass, factor, passes)}>
       {rec(pass-1)}
     </Blur1D>;
@@ -37,6 +40,9 @@ module.exports = GL.createComponent(
       factor: PropTypes.number.isRequired,
       children: PropTypes.any.isRequired,
       passes: PropTypes.number,
-      directionForPass: PropTypes.func
+      directionForPass: PropTypes.func,
+      width: PropTypes.number,
+      height: PropTypes.number,
+      pixelRatio: PropTypes.number
     }
   });
