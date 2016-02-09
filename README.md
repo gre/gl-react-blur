@@ -20,6 +20,7 @@ It accepts one more prop:
 
 - `map` **(required)**: a texture that localize the blur intensity.
 
+
 ## Usage Examples
 
 ```js
@@ -54,4 +55,12 @@ import {Blur} from "gl-react-blur";
     </EffectB>
   </EffectA>
 </Blur>
+```
+
+### Variable Blur
+
+```html
+<BlurV factor={3} passes={6} map="http://i.imgur.com/SzbbUvX.png">
+  ...
+</BlurV>
 ```
