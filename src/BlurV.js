@@ -3,23 +3,24 @@ const React = require("react");
 const {
   PropTypes
 } = React;
-const Blur1D = require("./Blur1D");
+const BlurV1D = require("./BlurV1D");
 const directionForPassDefault = require("./directionForPassDefault");
 
 module.exports = GL.createComponent(
-  ({ width, height, pixelRatio, factor, children, passes, directionForPass }) => {
+  ({ width, height, map, pixelRatio, factor, children, passes, directionForPass }) => {
     const rec = pass => pass <= 0 ? children :
-    <Blur1D
+    <BlurV1D
       width={width}
       height={height}
+      map={map}
       pixelRatio={pixelRatio}
       direction={directionForPass(pass, factor, passes)}>
       {rec(pass-1)}
-    </Blur1D>;
+    </BlurV1D>;
     return rec(passes);
   },
   {
-    displayName: "Blur",
+    displayName: "BlurV",
     defaultProps: {
       passes: 2,
       directionForPass: directionForPassDefault
@@ -29,6 +30,7 @@ module.exports = GL.createComponent(
       children: PropTypes.any.isRequired,
       passes: PropTypes.number,
       directionForPass: PropTypes.func,
+      map: PropTypes.any.isRequired,
       width: PropTypes.number,
       height: PropTypes.number,
       pixelRatio: PropTypes.number

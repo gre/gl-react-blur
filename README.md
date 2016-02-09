@@ -2,7 +2,7 @@
 
 [Universal](https://projectseptemberinc.gitbooks.io/gl-react/content/docs/universal.html) gl-react **multi-pass gaussian Blur effect** with configurable intensity.
 
-## Props
+## `{Blur}` Props
 
 - `children` **(required)**: the content to blur.
 - `factor` **(required)**: positive number that control the blur intensity (independently from the viewport size).
@@ -11,6 +11,14 @@
 More advanced...
 
 - `directionForPass`: function that gives the linear blur direction for a given pass. `(p, factor, total) => [ dx, dy ]`. Default to a function that do a *{ horizontal, vertical, diagonal 1, diagonal 2 }* rotation with varying intensity.
+
+## `{BlurV}` Props
+
+**BlurV** is a variant of **Blur** that allows to make **Variable** blur effect.
+
+It accepts one more prop:
+
+- `map` **(required)**: a texture that localize the blur intensity.
 
 ## Usage Examples
 

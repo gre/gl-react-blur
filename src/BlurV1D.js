@@ -9,7 +9,7 @@ const shaders = GL.Shaders.create({
 // blur9: from https://github.com/Jam3/glsl-fast-gaussian-blur
     frag: `precision highp float;
 varying vec2 uv;
-uniform sampler2D t;
+uniform sampler2D t, map;
 uniform vec2 direction, resolution;
 
 vec4 blur9(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
@@ -25,13 +25,13 @@ vec4 blur9(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
 }
 
 void main () {
-  gl_FragColor = blur9(t, uv, resolution, direction);
+  gl_FragColor = blur9(t, uv, resolution, direction * texture2D(map, uv).rg);
 }`
   }
 });
 
 module.exports = GL.createComponent(
-  ({ width, height, pixelRatio, direction, children: t }) =>
+  ({ width, height, map, pixelRatio, direction, children: t }) =>
   <GL.Node
     shader={shaders.blur1D}
     width={width}
@@ -40,13 +40,15 @@ module.exports = GL.createComponent(
     uniforms={{
       direction,
       resolution: [ width, height ],
-      t
+      t,
+      map
     }}
   />,
   {
-    displayName: "Blur1D",
+    displayName: "BlurV1D",
     propTypes: {
       direction: PropTypes.array.isRequired,
-      children: PropTypes.any.isRequired
+      children: PropTypes.any.isRequired,
+      map: PropTypes.any.isRequired
     }
   });
