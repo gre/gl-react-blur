@@ -31,8 +31,8 @@ module.exports = GL.createComponent(
       passes: PropTypes.number,
       directionForPass: PropTypes.func,
       map: PropTypes.any.isRequired,
-      width: PropTypes.number,
-      height: PropTypes.number,
+      width: PropTypes.any,
+      height: PropTypes.any,
       pixelRatio: PropTypes.number
     }
   });
