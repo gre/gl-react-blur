@@ -1,8 +1,6 @@
 const GL = require("gl-react");
 const React = require("react");
-const {
-  PropTypes
-} = React;
+import PropTypes from 'prop-types';
 const Blur1D = require("./Blur1D");
 const directionForPassDefault = require("./directionForPassDefault");
 
