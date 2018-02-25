@@ -1,6 +1,6 @@
 {
   "name": "gl-react-blur",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Universal gl-react multi-pass gaussian Blur effect with configurable intensity",
   "main": "lib/index.js",
   "scripts": {
