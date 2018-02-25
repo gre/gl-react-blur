@@ -1,16 +1,16 @@
-# gl-react-blur ![](https://img.shields.io/npm/v/gl-react-blur.svg) ![](https://img.shields.io/badge/gl--react-~2.1-05F561.svg) ![](https://img.shields.io/badge/gl--react-dom%20%7C%20native-f90.svg)
+# gl-react-blur ![](https://img.shields.io/npm/v/gl-react-blur.svg) ![](https://img.shields.io/badge/gl--react-3-05F561.svg) ![](https://img.shields.io/badge/gl--react-dom%20%7C%20native-f90.svg)
 
 [Universal](https://projectseptemberinc.gitbooks.io/gl-react/content/docs/universal.html) gl-react **multi-pass gaussian Blur effect** with configurable intensity.
 
 ## `{Blur}` Props
 
-- `children` **(required)**: the content to blur.
-- `factor` **(required)**: positive number that control the blur intensity (independently from the viewport size).
-- `passes`: integer that controls the number of linear Blur passes. Default to 2. You better you an even number.
+* `children` **(required)**: the content to blur.
+* `factor` **(required)**: positive number that control the blur intensity (independently from the viewport size).
+* `passes`: integer that controls the number of linear Blur passes. Default to 2. You better you an even number.
 
 More advanced...
 
-- `directionForPass`: function that gives the linear blur direction for a given pass. `(p, factor, total) => [ dx, dy ]`. Default to a function that do a *{ horizontal, vertical, diagonal 1, diagonal 2 }* rotation with varying intensity.
+* `directionForPass`: function that gives the linear blur direction for a given pass. `(p, factor, total) => [ dx, dy ]`. Default to a function that do a _{ horizontal, vertical, diagonal 1, diagonal 2 }_ rotation with varying intensity.
 
 ## `{BlurV}` Props
 
@@ -18,15 +18,14 @@ More advanced...
 
 It accepts one more prop:
 
-- `map` **(required)**: a texture that localize the blur intensity.
-
+* `map` **(required)**: a texture that localize the blur intensity.
 
 ## Usage Examples
 
 ```js
 var Blur = require("gl-react-blur").Blur;
 // or
-import {Blur} from "gl-react-blur";
+import { Blur } from "gl-react-blur";
 ```
 
 ### Small blur on an image

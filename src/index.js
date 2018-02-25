@@ -1,6 +1,5 @@
-module.exports = {
-  Blur: require("./Blur"),
-  Blur1D: require("./Blur1D"),
-  BlurV: require("./BlurV"),
-  BlurV1D: require("./BlurV1D")
-};
+import Blur from "./Blur";
+import Blur1D from "./Blur1D";
+import BlurV from "./BlurV";
+import BlurV1D from "./BlurV1D";
+export { Blur, Blur1D, BlurV, BlurV1D };

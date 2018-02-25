@@ -1,10 +1,10 @@
-const GL = require("gl-react");
-const React = require("react");
-import PropTypes from 'prop-types';
+import { Shaders, Uniform } from "gl-react";
+import React from "react";
+import PropTypes from "prop-types";
 
-const shaders = GL.Shaders.create({
+const shaders = Shaders.create({
   blur1D: {
-// blur9: from https://github.com/Jam3/glsl-fast-gaussian-blur
+    // blur9: from https://github.com/Jam3/glsl-fast-gaussian-blur
     frag: `precision highp float;
 varying vec2 uv;
 uniform sampler2D t;
@@ -28,8 +28,7 @@ void main () {
   }
 });
 
-module.exports = GL.createComponent(
-  ({ width, height, pixelRatio, direction, children: t }) =>
+const Blur1D = ({ width, height, pixelRatio, direction, children: t }) => (
   <GL.Node
     shader={shaders.blur1D}
     width={width}
@@ -37,14 +36,15 @@ module.exports = GL.createComponent(
     pixelRatio={pixelRatio}
     uniforms={{
       direction,
-      resolution: [ width, height ],
+      resolution: Uniform.Resolution,
       t
     }}
-  />,
-  {
-    displayName: "Blur1D",
-    propTypes: {
-      direction: PropTypes.array.isRequired,
-      children: PropTypes.any.isRequired
-    }
-  });
+  />
+);
+
+Blur1D.propTypes = {
+  direction: PropTypes.array.isRequired,
+  children: PropTypes.any.isRequired
+};
+
+export default Blur1D;
