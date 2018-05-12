@@ -1,4 +1,4 @@
-import { Shaders, Uniform } from "gl-react";
+import { Shaders, Uniform, Node } from "gl-react";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -29,7 +29,7 @@ void main () {
 });
 
 const Blur1D = ({ width, height, pixelRatio, direction, children: t }) => (
-  <GL.Node
+  <Node
     shader={shaders.blur1D}
     width={width}
     height={height}
