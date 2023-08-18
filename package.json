@@ -11,7 +11,7 @@
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "gl-react": "~2.2.0"
+    "gl-react": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
